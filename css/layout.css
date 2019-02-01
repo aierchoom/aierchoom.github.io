@@ -5,6 +5,7 @@
  */
 
  /* __ 边框、阴影、过渡 */
+
 .splitline::after{content: ''; border-right: 1px solid #f5c106; position: absolute; top: .25rem; bottom: .25rem; right: 0;}
 .splitlineL::after{content: ''; border-left: 1px solid #f5c106; position: absolute; top: .25rem; bottom: .25rem; left: 0;}
 .shadowB{box-shadow:0 .01rem .1rem rgba(100,100,100,.1);}

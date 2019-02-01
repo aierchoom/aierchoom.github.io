@@ -2,6 +2,7 @@
 var i=0;
 var T1;
 var T2;
+var z_index;
 var branch_version='';
 function GoBottom(){$(".wc__chatMsg-panel").animate({scrollTop: $("#J__chatMsgList").height()}, 0);}
 function addMsg(li_class,name,text,head_picture)
@@ -33,7 +34,7 @@ function addMsg(li_class,name,text,head_picture)
 						</li>';
 				}
 				GoBottom();
-					
+				changeSize();
 			}
 function sendMessage(func)
 {
@@ -90,8 +91,42 @@ function print(m_text,func)
 	if(i<m_text.length){setTimeout(function(){print(m_text,func);},300)}
 	else{i=0;sendMessage(func);}
 }
+function getStyle(element)
+{
+    if(window.getComputedStyle)
+    {
+        return window.getComputedStyle(element,null)
+    }
+    else
+        return element.currentStyle;
+}
+function changeSize()
+{
+    var imgArray=document.getElementsByTagName("img");
+    for(var i=0;i<imgArray.length;i++)
+    {
+    	imgArray[i].onload=function () {
+            var style=getStyle(this);
+            if(this.getAttribute("src").includes("表情")&&!this.className.includes("change"))
+            {
+                //alert(this.offsetWidth);
+				if(z_index==1)
+                this.style.width=Number(style.width.replace("px",""))*0.7+"px";
+				else
+                    this.style.width=Number(style.width.replace("px",""))*0.5+"px";
+                this.className+="change";
+            }
+        }
+
+    }
+}
 window.onload=function()
 {
+	var indicate_state=document.createElement("div");
+	indicate_state.id="indicator";
+	indicate_state.className="indicate_state";
+	document.body.appendChild(indicate_state);
+	z_index=parseInt(getStyle(document.getElementById("indicator")).zIndex);
 	var time=0;
 	setTimeout(function(){addMsg("other","艾丽莎",'咦',"img/头像/艾丽莎.png");},time+=1000);
 	setTimeout(function(){addMsg("other","艾丽莎",'为什么这个超市没有猫蜘蛛的眼泪、龙鸟的鳞片、食人花的根卖呀？',"img/头像/艾丽莎.png");},time+=2000);
@@ -154,7 +189,6 @@ function TipsFunc1(tip)
 							setTimeout(function(){addMsg("other","海拉",'谢谢你绫人~不愧是我的前队友，这就是队友情吧',"img/头像/海拉.png");},time+=1000);
 							setTimeout(function(){addMsg("other","海拉",'我现在就来找你玩哦~',"img/头像/海拉.png");},time+=1000);
 							setTimeout(function(){document.getElementById("J__chatMsgList").innerHTML+='<li class="notice"><span>"<a href="#">海拉</a>已被移除群聊</span></li>';},time+=2000);
-							setTimeout(function(){GoBottom()},time+=50);
 							setTimeout(function(){addTips(1,'……我会去找到他的。');addTips(2,'也不用直接移除吧。');},time+=50);
 							setTimeout(function(){GoBottom()},time+=70);
 						});
@@ -177,9 +211,9 @@ function TipsFunc1(tip)
 					setTimeout(function(){addMsg("other","维尔德",'（维尔德惊恐.表情包）',"img/头像/维尔德.png");},time+=1000);
 					setTimeout(function(){addMsg("other","奥登",'啊？咋回事啊？',"img/头像/奥登.png");},time+=1000);
 					setTimeout(function(){addMsg("other","海拉",'啊——是那事啊',"img/头像/海拉.png");},time+=1000);
-					setTimeout(function(){addMsg("other","海拉",'<img src="./img/表情/海拉/海拉笔心.gif">',"img/头像/海拉.png");},time+=1000);
+					setTimeout(function(){addMsg("other","海拉",'<img class="facePicture" src="./img/表情/海拉/海拉笔心.gif">',"img/头像/海拉.png");},time+=1000);
 					setTimeout(function(){addMsg("other","艾丽莎",'呜哇哇哇哇！！！',"img/头像/艾丽莎.png");},time+=1000);
-					setTimeout(function(){addMsg("other","艾丽莎",'<img src="./img/表情/艾丽莎/爱丽哭哭.png">',"img/头像/艾丽莎.png");},time+=1000);
+					setTimeout(function(){addMsg("other","艾丽莎",'<img  src="./img/表情/艾丽莎/爱丽哭哭.png">',"img/头像/艾丽莎.png");},time+=1000);
 					setTimeout(function(){addMsg("other","奥登",'@海拉 你对爱丽做过些什么？！',"img/头像/奥登.png");},time+=1000);
 					setTimeout(function(){addMsg("other","海拉",'没做什么啊？',"img/头像/海拉.png");},time+=1000);
 					setTimeout(function(){addMsg("other","海拉",'就是用她的身体',"img/头像/海拉.png");},time+=1000);
@@ -187,6 +221,8 @@ function TipsFunc1(tip)
 					setTimeout(function(){addMsg("other","奥登",'诶？！',"img/头像/奥登.png");},time+=1000);
 					setTimeout(function(){addMsg("other","穆宁",'噗，这个说法，停在这里也太让人误会了吧',"img/头像/穆宁.png");},time+=1000);
 					setTimeout(function(){addMsg("other","绫人",'艾丽莎，如果奥登之后要去找海拉送命，我觉得你是要负责的。',"img/头像/绫人.png");},time+=1000);
+					setTimeout(function(){addTips(1,'……我会去找到他的。');addTips(2,'也不用直接移除吧。');},time+=50);
+					setTimeout(function(){GoBottom()},time+=70);
 				});
 			},time+=1000);
 			break;
