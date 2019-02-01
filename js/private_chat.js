@@ -1,4 +1,5 @@
 var i=0;
+var z_index;
 function GoBottom(){$(".wc__chatMsg-panel").animate({scrollTop: $("#J__chatMsgList").height()}, 0);}
 
 function Request(strName)
@@ -43,7 +44,7 @@ function addMsg(li_class,name,text,head_picture)
 						</li>';
 				}
 				GoBottom();
-					
+				changeSize();
 	}
 function sendMessage(func)
 {
@@ -583,8 +584,43 @@ function end2221()
 		},time+=1000);
 	});
 }
+function getStyle(element)
+{
+    if(window.getComputedStyle)
+    {
+        return window.getComputedStyle(element,null)
+    }
+    else
+        return element.currentStyle;
+}
+function changeSize()
+{
+    var imgArray=document.getElementsByTagName("img");
+    for(var i=0;i<imgArray.length;i++)
+    {
+        imgArray[i].onload=function () {
+            var style=getStyle(this);
+            if((this.getAttribute("src").includes("表情")||this.getAttribute("src").includes("照片"))&&!this.className.includes("change"))
+            {
+                //alert(this.offsetWidth);
+                if(z_index==1)
+                    this.style.width=Number(style.width.replace("px",""))*0.7+"px";
+                else
+                    this.style.width=Number(style.width.replace("px",""))*0.5+"px";
+                this.className+="change";
+            }
+        }
+
+    }
+}
 window.onload=function()
 {
+
+    var indicate_state=document.createElement("div");
+    indicate_state.id="indicator";
+    indicate_state.className="indicate_state";
+    document.body.appendChild(indicate_state);
+    z_index=parseInt(getStyle(indicate_state).zIndex);
 	var branch=Request("branch_version");
 	switch(branch)
 	{

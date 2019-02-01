@@ -107,7 +107,7 @@ function changeSize()
     {
     	imgArray[i].onload=function () {
             var style=getStyle(this);
-            if(this.getAttribute("src").includes("表情")&&!this.className.includes("change"))
+            if((this.getAttribute("src").includes("表情")||this.getAttribute("src").includes("照片"))&&!this.className.includes("change"))
             {
                 //alert(this.offsetWidth);
 				if(z_index==1)
