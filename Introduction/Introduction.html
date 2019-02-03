@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+    #head
+	{
+		position: fixed;
+		
+		width: 100%;
+			
+		text-align: center;
+			
+		background-color:rgba(255,255,255,0.5)
+    }
+	img
+	{
+		width: 100%;
+	}
+	#music
+	{
+		display: none;
+		
+
+	}
+	</style>
+</head>
+
+<body>
+<audio controls="controls" loop="loop" id="music">
+				<source src="./music/The4thKaleidoscope（Instrumental).mp3" type="audio/ogg"/>
+				  Your browser does not support the audio element.
+		</audio>
+<div id="head">
+		<script>
+			var m = document.getElementById('music');
+			m.autoplay = true;
+			m.volume = 0.2;
+		</script>
+		<p style="font-size: 3em">The Forth</p>
+	</div>
+	<img src="1.jpg" id="Weird"/>
+	<img src="2.jpg" id="Hera"/>
+	<img src="3.jpg" id="Ayato"/>
+	<img src="6.jpg" id="Elisabeth"/>
+	<img src="7.jpg" id="Mvnin"/>
+	<img src="8.jpg" id="Vera"/>
+	<img src="9.jpg" id="Odense"/>
+	<img src="4.jpg" id="Normal"/>
+</body>
+</html>

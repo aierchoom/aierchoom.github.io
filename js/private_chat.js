@@ -1,5 +1,6 @@
 var i=0;
 var z_index;
+var branch='';
 function GoBottom(){$(".wc__chatMsg-panel").animate({scrollTop: $("#J__chatMsgList").height()}, 0);}
 
 function Request(strName)
@@ -65,6 +66,40 @@ function print(m_text,func)
 	if(i<m_text.length){setTimeout(function(){print(m_text,func);},300)}
 	else{i=0;sendMessage(func);}
 }
+
+function JumpTipProc()
+{
+	switch(branch)
+	{
+		case '1111':
+			window.location.href="./Introduction/Introduction.html#Hera";
+		break;
+
+		case '2212':
+			window.location.href="./Introduction/Introduction.html#Ayato";
+		break;
+
+		case '2221':
+			window.location.href="./Introduction/Introduction.html#Weird";
+		break;
+
+	}
+
+
+}
+function AddJumpToTip(text)
+{
+	var box=document.getElementById("bodybox");
+	tip=document.createElement("div");
+	tip.className='Tips';
+	tip.innerHTML= text;
+	tip.style.display='block';
+	tip.style.top='30%'
+	tip.addEventListener('click', JumpTipProc, false)
+	box.insertBefore(tip,box.firstChild);
+	return;
+}
+
 function end1111()
 {
 	var time=0;
@@ -223,6 +258,7 @@ function end1111()
 																									setTimeout(() => {addMsg("other","海拉",'1',"img/头像/海拉.png");}, time+=1000);
 																									setTimeout(() => {addMsg("other","海拉",'可以睁眼了哦❤',"img/头像/海拉.png");}, time+=1000);
 																									setTimeout(() => {addMsg("other","海拉",'<img src="./img/照片/1.1.1.1 海拉和薇拉的烟花/海拉烟花.jpg">',"img/头像/海拉.png");}, time+=1000);
+																									setTimeout(() => {AddJumpToTip('跳转到海拉介绍页');},time+=1000);
 																								});
 																							},time+=1000);
 																							});
@@ -608,7 +644,7 @@ window.onload=function()
     indicate_state.className="indicate_state";
     document.body.appendChild(indicate_state);
     z_index=parseInt(getStyle(indicate_state).zIndex);
-	var branch=Request("branch_version");
+	branch=Request("branch_version");
 	switch(branch)
 	{
 		case '1111':

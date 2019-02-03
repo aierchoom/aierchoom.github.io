@@ -73,6 +73,49 @@ function addTips(tips,text)
 	}
 }
 
+function JumpTipProc()
+{
+	switch(branch_version)
+	{
+		case '12':
+			window.location.href="./Introduction/Introduction.html#Elisabeth";
+		break;
+
+		case '1112':
+			window.location.href="./Introduction/Introduction.html#Normal";
+		break;
+
+		case '21':
+			window.location.href="./Introduction/Introduction.html#Mvnin";
+		break;
+
+		case '2211':
+			window.location.href="./Introduction/Introduction.html#Normal";
+		break;
+
+		case '2222':
+			window.location.href="./Introduction/Introduction.html#Normal";
+		break;
+
+	}
+
+
+}
+function AddJumpToTip(text)
+{
+	var box=document.getElementById("bodybox");
+	tip=document.createElement("div");
+	tip.className='Tips';
+	tip.style.color='#3399ff';
+	tip.innerHTML= text;
+	tip.style.display='block';
+	tip.style.top='20%'
+	this.zIndex=10000;
+	tip.addEventListener('click', JumpTipProc, false)
+	box.insertBefore(tip,box.firstChild);
+	return;
+}
+
 function removeTip()
 {
 	var box=document.getElementById("bodybox");
@@ -223,6 +266,7 @@ function TipsFunc1(tip)
 					setTimeout(function(){addMsg("other","绫人",'艾丽莎，如果奥登之后要去找海拉拼命，我觉得你是要负责的。',"img/头像/绫人.png");},time+=2000);
 					setTimeout(function(){addTips(1,'……我会去找到他的。');addTips(2,'也不用直接移除吧。');},time+=2000);
 					setTimeout(function(){GoBottom()},time+=70);
+					setTimeout(function(){AddJumpToTip('跳转到大家的介绍页')},time+=70);
 				});
 			},time+=1000);
 			break;
@@ -325,6 +369,7 @@ function TipsFunc1(tip)
 							setTimeout(function(){addMsg("other","海拉",'<img src="./img/照片/1.1.1.2 烟花/烟花.jpg">',"img/头像/海拉.png");},time+=1000);
 							setTimeout(function(){addMsg("other","海拉",'快看窗外',"img/头像/海拉.png");},time+=4000);
 							setTimeout(function(){addMsg("other","海拉",'是送给你的哦❤',"img/头像/海拉.png");},time+=1000);
+							setTimeout(function(){AddJumpToTip('跳转到艾丽莎介绍页')},time+=70);
 						});	
 					});
 				},time+=1000)
@@ -401,7 +446,7 @@ function TipsFunc2(tip)
 										setTimeout(function(){addMsg("other","艾丽莎",'我和亲爱的已经买好饮料了哦~',"img/头像/艾丽莎.png");},time+=1000);
 										setTimeout(function(){addMsg("other","维尔德",'<img src="./img/表情/维尔德/维尔德点赞.jpg">',"img/头像/维尔德.png");},time+=1000);
 										setTimeout(function(){addMsg("other","穆宁",'我和维尔德也弄完了，那么我们去门口集合吧^ ^',"img/头像/穆宁.png");},time+=2500);
-										//jump to 穆宁END
+										setTimeout(function(){AddJumpToTip('跳转到穆宁介绍页')},time+=70);
 									});
 							},time+=500);
 				});
@@ -509,7 +554,7 @@ function TipsFunc2(tip)
 										time=0;
 										setTimeout(function(){addMsg("other","绫人",'OK。',"img/头像/绫人.png");},time+=1000);
 										setTimeout(function(){addMsg("other","绫人",'先赶紧买完菜，咱们去超市门口碰头吧。',"img/头像/绫人.png");},time+=2000);
-										//jump to →NORMAL END 2
+										setTimeout(function(){AddJumpToTip('跳转到大家的介绍页')},time+=70);
 									});
 								},time+=1000);
 							});
@@ -572,6 +617,7 @@ function TipsFunc2(tip)
 				setTimeout(function(){addMsg("other","绫人",'毕竟只要你们完成了事件，到了下一个世界，我们就全都能复活了。',"img/头像/绫人.png");},time+=1000);
 				setTimeout(function(){addMsg("other","维尔德",'嗯',"img/头像/维尔德.png");},time+=3000);
 				setTimeout(function(){print("……我明白了",function(){});	},time+=2000);
+				setTimeout(function(){AddJumpToTip('跳转到大家的介绍页')},time+=70);
 			});
 		break;
 	}
