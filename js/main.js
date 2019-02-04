@@ -344,7 +344,6 @@ function TipsFunc1(tip)
 							setTimeout(function(){addMsg("other","绫人",'<img src="./img/表情/绫人/绫人点赞.jpg">',"img/头像/绫人.png");},time+=1000);
 							setTimeout(function(){addMsg("other","穆宁",'薇拉拜托你了。',"img/头像/穆宁.png");},time+=2000);
 							setTimeout(function(){$("#TipMessage").fadeIn("slow");GoBottom();},time+=1000);
-							//→海拉end
 					});
 				},time+=1000);
 			});
@@ -371,7 +370,7 @@ function TipsFunc1(tip)
 							setTimeout(function(){addMsg("other","海拉",'<img src="./img/照片/1.1.1.2 烟花/烟花.jpg">',"img/头像/海拉.png");},time+=1000);
 							setTimeout(function(){addMsg("other","海拉",'快看窗外',"img/头像/海拉.png");},time+=4000);
 							setTimeout(function(){addMsg("other","海拉",'是送给你的哦❤',"img/头像/海拉.png");},time+=1000);
-							setTimeout(function(){AddJumpToTip('跳转到艾丽莎介绍页')},time+=70);
+							setTimeout(function(){AddJumpToTip('已进入ed,跳转到人物介绍页')},time+=70);
 						});	
 					});
 				},time+=1000)
@@ -556,7 +555,7 @@ function TipsFunc2(tip)
 										time=0;
 										setTimeout(function(){addMsg("other","绫人",'OK。',"img/头像/绫人.png");},time+=1000);
 										setTimeout(function(){addMsg("other","绫人",'先赶紧买完菜，咱们去超市门口碰头吧。',"img/头像/绫人.png");},time+=2000);
-										setTimeout(function(){AddJumpToTip('跳转到大家的介绍页')},time+=70);
+										setTimeout(function(){AddJumpToTip('已进入ed,跳转到人物介绍页')},time+=70);
 									});
 								},time+=1000);
 							});
@@ -618,8 +617,7 @@ function TipsFunc2(tip)
 				setTimeout(function(){addMsg("other","绫人",'是的，所以保险起见，如果真的到了那时候，你们得先保证自己活下来，再来寻找其他完成事件的方法。',"img/头像/绫人.png");},time+=2000);
 				setTimeout(function(){addMsg("other","绫人",'毕竟只要你们完成了事件，到了下一个世界，我们就全都能复活了。',"img/头像/绫人.png");},time+=1000);
 				setTimeout(function(){addMsg("other","维尔德",'嗯',"img/头像/维尔德.png");},time+=3000);
-				setTimeout(function(){print("……我明白了",function(){});	},time+=2000);
-				setTimeout(function(){AddJumpToTip('跳转到大家的介绍页')},time+=70);
+				setTimeout(function(){print("……我明白了",function(){setTimeout(function(){AddJumpToTip('已进入ed,跳转到人物介绍页')},time+=70);});},time+=2000);
 			});
 		break;
 	}

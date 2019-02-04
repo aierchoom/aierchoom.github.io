@@ -442,6 +442,7 @@ function end2212()
 																					setTimeout(() => {addMsg("other","绫人",'哼。',"img/头像/绫人.png");}, time+=1000);
 																					setTimeout(() => {addMsg("other","绫人",'<img src="./img/表情/绫人/绫人点赞.jpg">',"img/头像/绫人.png");}, time+=1000);
 																					setTimeout(() => {addMsg("other","绫人",'如果一切顺利的话，到时我就分点棉花糖给你做封口费吧。',"img/头像/绫人.png");}, time+=2000);
+																					setTimeout(() => {AddJumpToTip('跳转到绫人介绍页');},time+=1000);
 																				});
 																				},time+=1000);
 																			});
@@ -578,6 +579,7 @@ function end2221()
 														print('我也看到你了',()=>
 														{
 															setTimeout(() => {addMsg("me","薇拉",'<img src="./img/照片/薇拉拍摄维尔德/薇拉拍摄维尔德.jpg">',"img/头像/薇拉.png");}, time+=1000);
+															setTimeout(() => {AddJumpToTip('跳转到摄维尔德介绍页');},time+=1000);
 														});
 														},time+=1000);
 													});
